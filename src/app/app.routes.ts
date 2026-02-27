@@ -11,7 +11,7 @@ import { TwoWay } from './databinding/two-way/two-way';
 
 export const routes: Routes = [{path: "home",
 component: Home}, {path: "navi", component: Navi},
-{path: "attribute", componenent: Attribute},
+{path: "attribute", component: Attribute},
 {path: "class", component: Class}, 
 {path: "event", component: Event}, 
 {path: "interpolation", component: Interpolation}, 
