@@ -1,0 +1,51 @@
+<div class="wrapper">
+    <h2>Shoe Products</h2>
+    <p class="subtitle">Browse our collection of premium footwear</p>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+    
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>{{product.id}}</td>
+          <td>{{product.name}}</td>
+          <td>
+            <span [class]="product.status === 'Available' ? 'status-available' : product.status === 'Limited' ? 'status-limited' : 'status-out'">
+              {{product.status}}
+            </span>
+          </td>
+          <td><button class="view-btn" (click)="viewProduct(product)">View</button></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    
+    <div class="detail-overlay" [style.display]="showModal ? 'flex' : 'none'" (click)="closeModal()">
+      <div class="detail-modal" (click)="$event.stopPropagation()">
+    
+        <div class="detail-modal-top">
+          <h3>Shoe Details</h3>
+          <button (click)="closeModal()">X</button>
+        </div>
+    
+        <div class="detail-modal-info">
+          <p><strong>ID:</strong> {{selectedProduct?.id}}</p>
+          <p><strong>Name:</strong> {{selectedProduct?.name}}</p>
+          <p><strong>Brand:</strong> {{selectedProduct?.brand}}</p>
+          <p><strong>Category:</strong> {{selectedProduct?.category}}</p>
+          <p><strong>Price:</strong> ₱{{selectedProduct?.price}}</p>
+          <p><strong>Stock:</strong> {{selectedProduct?.stock}}</p>
+          <p><strong>Status:</strong> {{selectedProduct?.status}}</p>
+          <p><strong>Edition:</strong> {{selectedProduct?.edition}}</p>
+          <p><strong>Description:</strong> {{selectedProduct?.description}}</p>
+        </div>
+    
+      </div>
+    </div>
