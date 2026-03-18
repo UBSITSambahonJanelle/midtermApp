@@ -9,13 +9,33 @@ import { PropertyBinding } from './databinding/property/property';
 import { Style } from './databinding/style/style';
 import { TwoWayBinding } from './databinding/two-way/two-way';
 import { Products } from './products/products';
-export const routes: Routes = [ { path: '', redirectTo: 'home', pathMatch: 'full' },{path: "home",
-component: Home}, {path: "navi", component: Navi},
-{path: "attribute", component: Attribute},
-{path: "class", component: Class}, 
-{path: "event", component: EventBinding}, 
-{path: "interpolation", component: Interpolation}, 
-{path: "property", component: PropertyBinding},
-{path: "style", component: Style},
-{path: "two-way", component: TwoWayBinding},
-{path: "products", component: Products}];
+import { ProductsList } from './product-list/product-list';
+import { ProductDetails } from './product-details/product-details';
+import { SuppliersListComponent } from './suppliers-list/suppliers-list';
+import { SupplierDetailsComponent } from './supplier-details/supplier-details';
+
+export const routes: Routes = [
+{ path: '', redirectTo: '/home', pathMatch: 'full' },
+{ path: 'home', component: Home },
+{ path: 'navi', component: Navi },
+{ path: 'attribute', component: Attribute },
+{ path: 'class', component: Class },
+{ path: 'event', component: EventBinding },
+{ path: 'interpolation', component: Interpolation },
+{ path: 'property', component: PropertyBinding },
+{ path: 'style', component: Style },
+{ path: 'two-way', component: TwoWayBinding },
+{ path: 'products', component: Products },
+{ path: 'suppliers', component: SuppliersListComponent },
+{ path: 'suppliers/:id', component: SupplierDetailsComponent },
+{
+  path: 'prod-list',
+  component: ProductsList,
+  children: [
+    {
+      path: ':id',
+      children: [{ path: 'details', component: ProductDetails }],
+    },
+  ],
+},
+];

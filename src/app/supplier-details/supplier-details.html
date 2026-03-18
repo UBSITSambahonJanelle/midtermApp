@@ -1,0 +1,55 @@
+<div class="wrapper">
+    <div class="header-row">
+      <h2>Supplier Details</h2>
+      <button class="back-btn" (click)="goBack()">Back</button>
+    </div>
+    
+    <div class="form-card" *ngIf="supplier">
+    
+      <div class="form-group">
+        <label>ID</label>
+        <input type="text" [(ngModel)]="supplier.id" name="id" readonly />
+      </div>
+    
+      <div class="form-group">
+        <label>Supplier Name</label>
+        <input type="text" [(ngModel)]="supplier.supplierName" name="supplierName" />
+      </div>
+    
+      <div class="form-group">
+        <label>Location</label>
+        <input type="text" [(ngModel)]="supplier.location" name="location" />
+      </div>
+    
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" [(ngModel)]="supplier.email" name="email" />
+      </div>
+    
+      <div class="form-group">
+        <label>Contact Person</label>
+        <input type="text" [(ngModel)]="supplier.contactPerson" name="contactPerson" />
+      </div>
+    
+      <div class="form-group">
+        <label>Phone</label>
+        <input type="text" [(ngModel)]="supplier.phone" name="phone" />
+      </div>
+    
+      <div class="form-group">
+        <label>Products Supplied</label>
+        <textarea [(ngModel)]="supplier.productsSupplied" name="productsSupplied"></textarea>
+      </div>
+    
+      <div class="form-group">
+        <label>Status</label>
+        <input type="text" [(ngModel)]="supplier.status" name="status" />
+      </div>
+    
+      <div class="btn-row">
+        <button class="save-btn" (click)="saveChanges()">Save Changes</button>
+        <button class="back-btn" (click)="goBack()">Back to List</button>
+      </div>
+    
+    </div>
+    </div>
